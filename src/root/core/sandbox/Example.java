@@ -2,6 +2,7 @@ package root.core.sandbox;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Random;
 
@@ -17,6 +18,8 @@ public class Example extends Layer {
 	private String name;
 	private Color color;
 	private Rectangle rect;
+	private boolean dragging = false;
+	private int px, py;
 	
 	private static final Random rnd = new Random();
 	
@@ -47,16 +50,25 @@ public class Example extends Layer {
 	
 	
 	private boolean onPressed(MousePressedEvent event) {
-		if (rect.contains(new Pont(event.getX(), event.getY())));
+		if (rect.contains(new Point(event.getX(), event.getY())));
+		dragging = true;
+		return dragging;
 	}
 	
 	private boolean onReleased(MouseReleasedEvent event) {
-		System.out.println("Mouse released: "  + event.getKeyCode());
-		return false;
+		dragging = false;
+		return dragging;
 	}
 	
 	private boolean onMoved(MouseMotionEvent event) {
-		System.out.println("Mouse moved "  + event.getX() + " | " + event.getY());
-		return false;
+		if (dragging) {
+			rect.x += event.getX() - px;
+			rect.y += event.getY() - py;
+		}
+		
+		px = event.getX();
+		py = event.getY();
+		
+		return dragging;
 	}
 }

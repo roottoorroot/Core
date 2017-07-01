@@ -12,6 +12,6 @@ public class Dispatcher {
 		if (event.handled)
 			return;
 		if (event.getType() == type)
-			handler.handle(event);
+			event.handled = handler.handle(event);
 	}
 }
