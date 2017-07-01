@@ -67,6 +67,7 @@ public class Window extends Canvas {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(this);
 		frame.pack();
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
@@ -100,7 +101,7 @@ public class Window extends Canvas {
 	}
 	
 	private void onEvent(Event event) {
-		for (int i = layers.size(); i >= 0; i--) {
+		for (int i = layers.size() - 1; i >= 0; i--) {
 			layers.get(i).onEvent(event);
 		}
 	}
