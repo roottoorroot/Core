@@ -19,6 +19,8 @@ import root.core.app.evetns.types.MousePressedEvent;
 import root.core.app.evetns.types.MouseReleasedEvent;
 import root.core.layers.Layer;
 
+
+@SuppressWarnings("serial")
 public class Window extends Canvas {
 	
 	private BufferStrategy bs;
