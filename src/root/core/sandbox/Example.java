@@ -56,6 +56,7 @@ public class Example extends Layer {
 	}
 	
 	private boolean onReleased(MouseReleasedEvent event) {
+		
 		dragging = false;
 		return dragging;
 	}
