@@ -50,7 +50,7 @@ public class Example extends Layer {
 	
 	
 	private boolean onPressed(MousePressedEvent event) {
-		if (rect.contains(new Point(event.getX(), event.getY())));
+		if (rect.contains(new Point(event.getX(), event.getY())))
 			dragging = true;
 		return dragging;
 	}
